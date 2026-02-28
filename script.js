@@ -18,6 +18,10 @@ function addTask() {
   span.className = "text";
   span.textContent = text;
 
+  span.addEventListener("click", () => {
+    li.classList.toggle("done");
+  });
+
   li.appendChild(span);
   taskList.appendChild(li);
 
