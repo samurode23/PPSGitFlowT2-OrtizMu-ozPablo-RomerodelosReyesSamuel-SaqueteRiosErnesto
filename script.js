@@ -1,6 +1,11 @@
 const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
 const taskList = document.getElementById("taskList");
+function updateAddButton() {
+  addBtn.disabled = taskInput.value.trim() === "";
+}
+updateAddButton();
+taskInput.addEventListener("input", updateAddButton);
 
 function addTask() {
   const text = taskInput.value.trim();
@@ -17,6 +22,7 @@ function addTask() {
   taskList.appendChild(li);
 
   taskInput.value = "";
+  updateAddButton();
 }
 
 addBtn.addEventListener("click", addTask);
